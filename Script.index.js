@@ -1,3 +1,140 @@
+// ========== Carrinho lateral ========== 
+
+const btnCarrinho = document.querySelector('#btn-carrinho');
+const btnFechar = document.querySelector('#btn-fechar-carrinho');
+const carrinhoLateral = document.querySelector('#carrinho-lateral');
+const carrinhoOverlay = document.querySelector('#carrinho-overlay');
+const carrinhoItens = document.querySelector('#carrinho-itens');
+const totalPreco = document.querySelector('#total-preco');
+const botoesAdicionar = document.querySelectorAll('.btn-adicionar');
+
+let carrinho = [];
+
+console.log('btnCarrinho:', btnCarrinho);
+console.log('btnFechar:', btnFechar);
+console.log('carrinhoLateral:', carrinhoLateral);
+console.log('botoesAdicionar:', botoesAdicionar.length);
+
+// Abrir carrinho
+if (btnCarrinho) {
+    btnCarrinho.addEventListener('click', () => {
+        console.log('Botão carrinho clicado!');
+        carrinhoLateral.classList.add('ativo');
+        carrinhoOverlay.classList.add('ativo');
+    });
+}
+
+// Fechar carrinho (botão X)
+if (btnFechar) {
+    btnFechar.addEventListener('click', () => {
+        console.log('Botão fechar clicado!');
+        carrinhoLateral.classList.remove('ativo');
+        carrinhoOverlay.classList.remove('ativo');
+    });
+}
+
+// Fechar carrinho clicando na overlay
+if (carrinhoOverlay) {
+    carrinhoOverlay.addEventListener('click', () => {
+        console.log('Overlay clicada!');
+        carrinhoLateral.classList.remove('ativo');
+        carrinhoOverlay.classList.remove('ativo');
+    });
+}
+
+// Adicionar produto ao carrinho
+console.log('Procurando botões de adicionar...');
+botoesAdicionar.forEach((botao, i) => {
+    console.log(`Botão ${i}:`, botao);
+    botao.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const nome = botao.dataset.nome;
+        const preco = parseFloat(botao.dataset.preco);
+        
+        console.log(`Produto adicionado: ${nome} - R$ ${preco}`);
+        
+        const produtoExistente = carrinho.find(item => item.nome === nome);
+        
+        if (produtoExistente) {
+            produtoExistente.quantidade += 1;
+        } else {
+            carrinho.push({
+                nome: nome,
+                preco: preco,
+                quantidade: 1
+            });
+        }
+        
+        console.log('Carrinho:', carrinho);
+        atualizarCarrinho();
+    });
+});
+
+// Atualizar carrinho
+function atualizarCarrinho() {
+    carrinhoItens.innerHTML = '';
+    
+    if (carrinho.length === 0) {
+        carrinhoItens.innerHTML = '<p class="carrinho-vazio">Seu carrinho está vazio</p>';
+        totalPreco.textContent = 'R$ 0,00';
+        return;
+    }
+    
+    let total = 0;
+    
+    carrinho.forEach((item, index) => {
+        const subtotal = item.preco * item.quantidade;
+        total += subtotal;
+        
+        const itemHTML = `
+            <div class="item-carrinho">
+                <div class="item-info">
+                    <h4>${item.nome}</h4>
+                    <p>R$ ${item.preco.toFixed(2)}</p>
+                </div>
+                
+                <div class="item-quantidade">
+                    <button class="btn-quantidade" onclick="diminuirQuantidade(${index})">−</button>
+                    <span class="quantidade-valor">${item.quantidade}</span>
+                    <button class="btn-quantidade" onclick="aumentarQuantidade(${index})">+</button>
+                </div>
+                
+                <button class="btn-remover" onclick="removerItem(${index})">🗑️</button>
+            </div>
+        `;
+        
+        carrinhoItens.innerHTML += itemHTML;
+    });
+    
+    totalPreco.textContent = `R$ ${total.toFixed(2)}`;
+}
+
+// Aumentar quantidade
+function aumentarQuantidade(index) {
+    carrinho[index].quantidade += 1;
+    atualizarCarrinho();
+}
+
+// Diminuir quantidade
+function diminuirQuantidade(index) {
+    if (carrinho[index].quantidade > 1) {
+        carrinho[index].quantidade -= 1;
+    } else {
+        removerItem(index);
+    }
+    atualizarCarrinho();
+}
+
+// Remover item
+function removerItem(index) {
+    carrinho.splice(index, 1);
+    atualizarCarrinho();
+}
+
+
+
+
 // Script todo do hero banner
 const hero = document.querySelector('.hero');
 

@@ -200,149 +200,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.icon-eye {
-    width: 18px;
-    height: 18px;
-    opacity: 0.6;
+    font-size: 16px;
     transition: opacity 0.3s ease;
 }
 
-.btn-mostrar-senha:hover .icon-eye {
-    opacity: 1;
-}
-
-/* Barra de segurança */
-.container-nivel-seguranca {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.barra-seguranca {
-    width: 100%;
-    height: 6px;
-    background-color: #333;
-    border-radius: 3px;
-    overflow: hidden;
-    border: 1px solid rgba(15, 214, 15, 0.2);
-}
-
-.barra-progresso {
-    height: 100%;
-    width: 0%;
-    background-color: #d9534f;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-}
-
-.barra-progresso.fraca {
-    width: 33%;
-    background-color: #d9534f;
-}
-
-.barra-progresso.media {
-    width: 66%;
-    background-color: #f0ad4e;
-}
-
-.barra-progresso.forte {
-    width: 100%;
-    background-color: rgb(15, 214, 15);
-}
-
-.texto-seguranca {
-    color: #888;
-    font-size: 12px;
-}
-
-/* Checkboxes customizadas */
-.grupo-checkbox {
-    margin-bottom: 16px;
-}
-
-.label-checkbox {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    color: #ccc;
-    font-size: 14px;
-    user-select: none;
-}
-
-.checkbox-input {
-    display: none;
-}
-
-.checkbox-custom {
-    width: 18px;
-    height: 18px;
-    border: 2px solid rgba(15, 214, 15, 0.5);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-}
-
-.checkbox-input:checked + .checkbox-custom {
-    background-color: rgb(15, 214, 15);
-    border-color: rgb(15, 214, 15);
-}
-
-.checkbox-input:checked + .checkbox-custom::after {
-    content: '✓';
-    color: #1a1a1a;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-/* Radio buttons customizados */
-.grupo-radio {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-}
-
-.label-radio {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    color: #ccc;
-    font-size: 14px;
-    user-select: none;
-}
-
-.radio-input {
-    display: none;
-}
-
-.radio-custom {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(15, 214, 15, 0.5);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-}
-
-.radio-input:checked + .radio-custom {
-    border-color: rgb(15, 214, 15);
-}
-
-.radio-input:checked + .radio-custom::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background-color: rgb(15, 214, 15);
-    border-radius: 50%;
+.btn-mostrar-senha:hover {
+    opacity: 0.8;
 }
 
 /* Mensagens de alerta */
@@ -421,6 +284,25 @@ header {
     transform: scale(0.98);
 }
 
+/* Link de login */
+.texto-login {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.link-login {
+    color: rgb(15, 214, 15);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.link-login:hover {
+    text-decoration: underline;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .container-cadastro {
@@ -443,11 +325,6 @@ header {
 
     .grupo-duplo .meio-grupo:last-child {
         margin-bottom: 0;
-    }
-
-    .grupo-radio {
-        flex-direction: column;
-        gap: 12px;
     }
 
     .grupo-botoes {

@@ -20,11 +20,36 @@
 
         <div class="header-icons">
             <a href="#"><img class="icon" src="assets/icons/search.svg" alt="Pesquisar"></a>
-            <a href="#"><img class="icon" src="assets/icons/cart.svg" alt="Carrinho"></a>
-            <a href="Login.html"><img class="icon" src="assets/icons/user.svg" alt="Login"></a>
-            <a href="#"><img class="icon" src="assets/icons/admin.svg" alt="Admin"></a>
+            <button id="btn-carrinho" style="background: none; border: none; cursor: pointer; padding: 0;">
+            <img class="icon" src="assets/icons/cart.svg" alt="Carrinho"></button>
+            <a href="login.html"><img class="icon" src="assets/icons/user.svg" alt="Login"></a>
+            <a href="admin.html"><img class="icon" src="assets/icons/admin.svg" alt="Admin"></a>
         </div>
     </header>
+
+    <!-- CARRINHO LATERAL -->
+    <div class="carrinho-overlay" id="carrinho-overlay"></div>
+
+    <div class="carrinho-lateral" id="carrinho-lateral">
+        <div class="carrinho-header">
+            <h2>Meu Carrinho</h2>
+            <button class="btn-fechar" id="btn-fechar-carrinho">✕</button>
+        </div>
+
+        <div class="carrinho-itens" id="carrinho-itens">
+            <!-- Os itens aparecem aqui dinamicamente -->
+            <p class="carrinho-vazio">Seu carrinho está vazio</p>
+        </div>
+
+        <div class="carrinho-footer">
+            <div class="carrinho-total">
+                <strong>Total:</strong>
+                <span id="total-preco">R$ 0,00</span>
+            </div>
+            <button class="btn-finalizar">Finalizar Compra</button>
+        </div>
+    </div>
+
 
     <section class="hero">
         <div class="hero-content">
@@ -50,7 +75,7 @@
 
     <!-- Sessão de produtos que ficará na página inicial (home) -->
 <div id="produtos">
-    <section class="produtos">
+     <section class="produtos">
         <h2 class="produtos-titulo">Nossos Produtos</h2>
         <div class="grade-produtos">
 
@@ -59,7 +84,7 @@
                 <div class="card-info">
                     <h3>Whey-protein</h3>
                     <span class="card-preco">R$ 149,90 </span>
-                    <a href="#" class="button">Comprar</a>
+                    <button class="button btn-adicionar" data-nome="Whey-protein" data-preco="149.90">Comprar</button>
                 </div>
             </div>
 
@@ -68,7 +93,7 @@
                 <div class="card-info">
                     <h3>Creatina</h3>
                     <span class="card-preco">R$ 89,90 </span>
-                    <a href="#" class="button">Comprar</a>
+                    <button class="button btn-adicionar" data-nome="Creatina" data-preco="89.90">Comprar</button>
                 </div>
             </div>
 
@@ -77,7 +102,7 @@
                 <div class="card-info">
                     <h3>Cafeína 200mg</h3>
                     <span class="card-preco">R$ 35,90 </span>
-                    <a href="#" class="button">Comprar</a>
+                    <button class="button btn-adicionar" data-nome="Cafeína 200mg" data-preco="35.90">Comprar</button>
                 </div>
             </div>
 
@@ -86,7 +111,7 @@
                 <div class="card-info">
                     <h3>Pré-treino</h3>
                     <span class="card-preco">R$ 79,90 </span>
-                    <a href="#" class="button">Comprar</a>
+                    <button class="button btn-adicionar" data-nome="Pré-treino" data-preco="79.90">Comprar</button>
                 </div>
             </div>
 
@@ -95,7 +120,7 @@
                 <div class="card-info">
                     <h3>Multivitamínico</h3>
                     <span class="card-preco">R$ 30,90 </span>
-                    <a href="#" class="button">Comprar</a>
+                    <button class="button btn-adicionar" data-nome="Multivitamínico" data-preco="30.90">Comprar</button>
                 </div>
             </div>
 
@@ -137,9 +162,6 @@
             <p>© 2026 NextShape - Todos os direitos reservados</p>
         </div>
     </footer>
-
-
-
 </body>
 
 </html>

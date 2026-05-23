@@ -1,4 +1,7 @@
+// ========================================
 // Elementos do formulário
+// ========================================
+
 const form = document.querySelector('#formCadastro');
 const emailInput = document.querySelector('#email');
 const cpfInput = document.querySelector('#cpf');
@@ -17,11 +20,9 @@ const estadoInput = document.querySelector('#estado');
 const btnMostrarSenha = document.querySelector('#btnMostrarSenha');
 const btnVoltar = document.querySelector('#btnVoltar');
 const mensagemAlerta = document.querySelector('#mensagemAlerta');
-const barraProgresso = document.querySelector('#barraProgresso');
-const textoSeguranca = document.querySelector('#textoSeguranca');
 
 // ========================================
-// VALIDAÇÕES
+// Validações
 // ========================================
 
 // Validar formato de email
@@ -100,50 +101,8 @@ function formatarCEP(value) {
     return cepFormatado;
 }
 
-// Calcular força da senha
-function calcularForcaSenha(senha) {
-    let forca = 0;
-    
-    if (senha.length >= 6) forca += 10;
-    if (senha.length >= 8) forca += 10;
-    if (senha.length >= 12) forca += 10;
-    
-    if (/[a-z]/.test(senha)) forca += 10;
-    if (/[A-Z]/.test(senha)) forca += 10;
-    if (/[0-9]/.test(senha)) forca += 10;
-    if (/[!@#$%^&*(),.?":{}|<>]/.test(senha)) forca += 10;
-    
-    return Math.min(forca, 100);
-}
-
-// Atualizar indicador de força de senha
-function atualizarIndicadorSenha() {
-    const senha = senhaInput.value;
-    
-    if (senha.length === 0) {
-        barraProgresso.className = 'barra-progresso';
-        textoSeguranca.textContent = 'Digite uma senha';
-        return;
-    }
-    
-    const forca = calcularForcaSenha(senha);
-    
-    barraProgresso.classList.remove('fraca', 'media', 'forte');
-    
-    if (forca <= 40) {
-        barraProgresso.classList.add('fraca');
-        textoSeguranca.textContent = 'Senha fraca';
-    } else if (forca <= 70) {
-        barraProgresso.classList.add('media');
-        textoSeguranca.textContent = 'Senha média';
-    } else {
-        barraProgresso.classList.add('forte');
-        textoSeguranca.textContent = 'Senha forte';
-    }
-}
-
 // ========================================
-// EVENT LISTENERS
+// Lista de eventos
 // ========================================
 
 // Formatar CPF em tempo real
@@ -172,14 +131,7 @@ btnMostrarSenha.addEventListener('click', (e) => {
     
     const tipo = senhaInput.type === 'password' ? 'text' : 'password';
     senhaInput.type = tipo;
-    
-    // Trocar ícone ou adicionar feedback visual
-    const icon = btnMostrarSenha.querySelector('.icon-eye');
-    icon.style.opacity = tipo === 'password' ? '0.6' : '1';
 });
-
-// Atualizar indicador de força de senha
-senhaInput.addEventListener('input', atualizarIndicadorSenha);
 
 // Botão voltar
 btnVoltar.addEventListener('click', () => {
@@ -187,7 +139,7 @@ btnVoltar.addEventListener('click', () => {
 });
 
 // ========================================
-// ENVIO DO FORMULÁRIO
+// Envio do formulário
 // ========================================
 
 form.addEventListener('submit', function (e) {
@@ -316,7 +268,10 @@ form.addEventListener('submit', function (e) {
     }, 2000);
 });
 
-// Funções auxiliares para mostrar mensagens
+// ========================================
+// Funções auxiliares
+// ========================================
+
 function exibirErro(mensagem) {
     mensagemAlerta.textContent = mensagem;
     mensagemAlerta.className = 'mensagem-alerta mensagem-erro';
