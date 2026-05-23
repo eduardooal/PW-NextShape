@@ -20,4 +20,3 @@ O projeto também tem como objetivo aplicar conceitos de organização de códig
 - Sistema de login e cadastro de usuários funcional
 - Persistência de dados (produtos, pedidos, usuários)
 - Integração com API e banco de dados
-# PW_NextShape
