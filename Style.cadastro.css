@@ -1,0 +1,504 @@
+/* Estilos específicos para a página de cadastro */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0a0a0a;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.header-logo h1 {
+    color: rgb(15, 214, 15);
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+.header-logo a {
+    text-decoration: none;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.header-icons {
+    display: flex;
+    gap: 20px;
+    padding-right: 15px;
+}
+
+/* Área principal de cadastro */
+.area-cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: calc(100vh - 200px);
+}
+
+/* Container do formulário */
+.container-cadastro {
+    background-color: #1a1a1a;
+    border: 2px solid rgb(15, 214, 15);
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 12px rgba(15, 214, 15, 0.1);
+}
+
+.titulo-cadastro {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    text-align: center;
+}
+
+.subtitulo-cadastro {
+    color: #aaa;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+/* Seção de cadastro */
+.secao-cadastro {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(15, 214, 15, 0.2);
+}
+
+.secao-cadastro:last-of-type {
+    border-bottom: none;
+}
+
+.header-secao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.numero-secao {
+    color: rgb(15, 214, 15);
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.titulo-secao {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Grupo de input */
+.grupo-input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label-input {
+    color: #ccc;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.obrigatorio {
+    color: rgb(15, 214, 15);
+}
+
+.hint {
+    color: #888;
+    font-size: 11px;
+    font-weight: normal;
+    margin-left: auto;
+}
+
+/* Input padrão */
+.input-cadastro {
+    padding: 12px;
+    border: 1px solid rgba(15, 214, 15, 0.3);
+    border-radius: 4px;
+    background-color: #201f1f;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-cadastro::placeholder {
+    color: #666;
+}
+
+.input-cadastro:focus {
+    border-color: rgb(15, 214, 15);
+    background-color: #2a2a2a;
+    box-shadow: 0 0 8px rgba(15, 214, 15, 0.2);
+}
+
+/* Select padrão */
+.input-cadastro select {
+    cursor: pointer;
+}
+
+/* Grupo duplo (lado a lado em desktop) */
+.grupo-duplo {
+    flex-direction: row;
+    gap: 16px;
+}
+
+.meio-grupo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.meio-grupo .label-input {
+    margin-bottom: 8px;
+}
+
+/* Container de senha com botão mostrar */
+.container-input-senha {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.container-input-senha .input-cadastro {
+    padding-right: 40px;
+    flex: 1;
+}
+
+.btn-mostrar-senha {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-eye {
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.btn-mostrar-senha:hover .icon-eye {
+    opacity: 1;
+}
+
+/* Barra de segurança */
+.container-nivel-seguranca {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.barra-seguranca {
+    width: 100%;
+    height: 6px;
+    background-color: #333;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid rgba(15, 214, 15, 0.2);
+}
+
+.barra-progresso {
+    height: 100%;
+    width: 0%;
+    background-color: #d9534f;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.barra-progresso.fraca {
+    width: 33%;
+    background-color: #d9534f;
+}
+
+.barra-progresso.media {
+    width: 66%;
+    background-color: #f0ad4e;
+}
+
+.barra-progresso.forte {
+    width: 100%;
+    background-color: rgb(15, 214, 15);
+}
+
+.texto-seguranca {
+    color: #888;
+    font-size: 12px;
+}
+
+/* Checkboxes customizadas */
+.grupo-checkbox {
+    margin-bottom: 16px;
+}
+
+.label-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 14px;
+    user-select: none;
+}
+
+.checkbox-input {
+    display: none;
+}
+
+.checkbox-custom {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(15, 214, 15, 0.5);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+    background-color: rgb(15, 214, 15);
+    border-color: rgb(15, 214, 15);
+}
+
+.checkbox-input:checked + .checkbox-custom::after {
+    content: '✓';
+    color: #1a1a1a;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Radio buttons customizados */
+.grupo-radio {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.label-radio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 14px;
+    user-select: none;
+}
+
+.radio-input {
+    display: none;
+}
+
+.radio-custom {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(15, 214, 15, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.radio-input:checked + .radio-custom {
+    border-color: rgb(15, 214, 15);
+}
+
+.radio-input:checked + .radio-custom::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: rgb(15, 214, 15);
+    border-radius: 50%;
+}
+
+/* Mensagens de alerta */
+.mensagem-alerta {
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mensagem-oculta {
+    display: none;
+}
+
+.mensagem-erro {
+    display: block;
+    background-color: rgba(217, 83, 79, 0.1);
+    border: 1px solid #d9534f;
+    color: #d9534f;
+}
+
+.mensagem-sucesso {
+    display: block;
+    background-color: rgba(15, 214, 15, 0.1);
+    border: 1px solid rgb(15, 214, 15);
+    color: rgb(15, 214, 15);
+}
+
+/* Botões de ação */
+.grupo-botoes {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.botao {
+    padding: 14px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.botao-cadastrar {
+    background-color: rgb(15, 214, 15);
+    color: #1a1a1a;
+}
+
+.botao-cadastrar:hover {
+    background-color: rgb(10, 180, 10);
+    box-shadow: 0 4px 12px rgba(15, 214, 15, 0.3);
+}
+
+.botao-cadastrar:active {
+    transform: scale(0.98);
+}
+
+.botao-voltar {
+    background-color: transparent;
+    color: rgb(15, 214, 15);
+    border: 2px solid rgb(15, 214, 15);
+}
+
+.botao-voltar:hover {
+    background-color: rgba(15, 214, 15, 0.1);
+}
+
+.botao-voltar:active {
+    transform: scale(0.98);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container-cadastro {
+        padding: 25px;
+        border-width: 1px;
+    }
+
+    .titulo-cadastro {
+        font-size: 24px;
+    }
+
+    .grupo-duplo {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .meio-grupo {
+        margin-bottom: 20px;
+    }
+
+    .grupo-duplo .meio-grupo:last-child {
+        margin-bottom: 0;
+    }
+
+    .grupo-radio {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .grupo-botoes {
+        flex-direction: column;
+    }
+
+    .botao {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .area-cadastro {
+        padding: 12px;
+    }
+
+    .container-cadastro {
+        padding: 20px;
+    }
+
+    .titulo-cadastro {
+        font-size: 20px;
+    }
+
+    .secao-cadastro {
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+    }
+
+    .header-secao {
+        margin-bottom: 20px;
+    }
+
+    .numero-secao {
+        font-size: 18px;
+    }
+
+    .titulo-secao {
+        font-size: 16px;
+    }
+
+    .label-input {
+        font-size: 12px;
+    }
+
+    .input-cadastro {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .grupo-input {
+        margin-bottom: 15px;
+    }
+}

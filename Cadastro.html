@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.index.css">
+    <link rel="stylesheet" href="Style.cadastro.css">
+    <link href="Style.index.css">
+    <script src="Script.cadastro.js" defer></script>
+    <title>Cadastro - NextShape</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <a href="Index.html">
+                <h1>NextShape</h1>
+            </a>
+        </div>
+        <div class="header-icons">
+            <a href="#"><img class="icon" src="assets/icons/search.svg" alt="Pesquisar"></a>
+            <a href="#"><img class="icon" src="assets/icons/cart.svg" alt="Carrinho"></a>
+            <a href="Login.html"><img class="icon" src="assets/icons/user.svg" alt="Login"></a>
+            <a href="#"><img class="icon" src="assets/icons/admin.svg" alt="Admin"></a>
+        </div>
+    </header>
+
+    <main class="area-cadastro">
+        <div class="container-cadastro">
+            <h2 class="titulo-cadastro">Criar Conta</h2>
+            <p class="subtitulo-cadastro">Preencha os dados abaixo para criar sua conta</p>
+
+            <form class="form-cadastro" id="formCadastro">
+                <!-- Seção 1: Dados Pessoais -->
+                <div class="secao-cadastro">
+                    <div class="header-secao">
+                        <h3 class="numero-secao">1.</h3>
+                        <h3 class="titulo-secao">Dados Pessoais</h3>
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="grupo-input">
+                        <label for="email" class="label-input">
+                            E-mail <span class="obrigatorio">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="input-cadastro" 
+                            placeholder="seu@email.com"
+                            required
+                        >
+                    </div>
+
+                    <!-- CPF -->
+                    <div class="grupo-input">
+                        <label for="cpf" class="label-input">
+                            CPF <span class="obrigatorio">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="cpf" 
+                            class="input-cadastro" 
+                            placeholder="000.000.000-00"
+                            maxlength="14"
+                            required
+                        >
+                    </div>
+
+                    <!-- Nome Completo -->
+                    <div class="grupo-input">
+                        <label for="nome" class="label-input">
+                            Nome Completo <span class="obrigatorio">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="nome" 
+                            class="input-cadastro" 
+                            placeholder="Digite seu nome completo"
+                            required
+                        >
+                    </div>
+
+                    <!-- Data de Nascimento -->
+                    <div class="grupo-input">
+                        <label for="dataNascimento" class="label-input">
+                            Data de Nascimento
+                        </label>
+                        <input 
+                            type="date" 
+                            id="dataNascimento" 
+                            class="input-cadastro"
+                        >
+                    </div>
+
+                    <!-- Telefone -->
+                    <div class="grupo-input grupo-duplo">
+                        <div class="meio-grupo">
+                            <label for="telefoneCelular" class="label-input">
+                                Telefone Celular <span class="obrigatorio">*</span>
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="telefoneCelular" 
+                                class="input-cadastro" 
+                                placeholder="(11) 99999-9999"
+                                required
+                            >
+                        </div>
+                        <div class="meio-grupo">
+                            <label for="telefoneFixo" class="label-input">
+                                Telefone Fixo
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="telefoneFixo" 
+                                class="input-cadastro" 
+                                placeholder="(11) 3333-3333"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Checkboxes de Notificações -->
+                    <div class="grupo-checkbox">
+                        <label class="label-checkbox">
+                            <input type="checkbox" id="promocoes" class="checkbox-input">
+                            <span class="checkbox-custom"></span>
+                            Quero receber promoções e ofertas da NextShape
+                        </label>
+                    </div>
+
+                    <div class="grupo-checkbox">
+                        <label class="label-checkbox">
+                            <input type="checkbox" id="whatsapp" class="checkbox-input">
+                            <span class="checkbox-custom"></span>
+                            Quero receber notificações via WhatsApp
+                        </label>
+                    </div>
+
+                    <!-- Gênero -->
+                    <div class="grupo-input">
+                        <label class="label-input">Gênero</label>
+                        <div class="grupo-radio">
+                            <label class="label-radio">
+                                <input type="radio" name="genero" value="masculino" class="radio-input">
+                                <span class="radio-custom"></span>
+                                Masculino
+                            </label>
+                            <label class="label-radio">
+                                <input type="radio" name="genero" value="feminino" class="radio-input">
+                                <span class="radio-custom"></span>
+                                Feminino
+                            </label>
+                            <label class="label-radio">
+                                <input type="radio" name="genero" value="outro" class="radio-input">
+                                <span class="radio-custom"></span>
+                                Outro
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Senha -->
+                    <div class="grupo-input">
+                        <label for="senha" class="label-input">
+                            Senha <span class="obrigatorio">*</span>
+                            <span class="hint">(6 ou mais caracteres)</span>
+                        </label>
+                        <div class="container-input-senha">
+                            <input 
+                                type="password" 
+                                id="senha" 
+                                class="input-cadastro" 
+                                placeholder="Digite uma senha segura"
+                                minlength="6"
+                                required
+                            >
+                            <button type="button" class="btn-mostrar-senha" id="btnMostrarSenha">
+                                <img src="assets/icons/eye.svg" alt="Mostrar senha" class="icon-eye">
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Confirmação de Senha -->
+                    <div class="grupo-input">
+                        <label for="confirmaSenha" class="label-input">
+                            Confirmar Senha <span class="obrigatorio">*</span>
+                        </label>
+                        <input 
+                            type="password" 
+                            id="confirmaSenha" 
+                            class="input-cadastro" 
+                            placeholder="Confirme sua senha"
+                            required
+                        >
+                    </div>
+
+                    <!-- Nível de Segurança -->
+                    <div class="grupo-input">
+                        <label for="nivelSeguranca" class="label-input">
+                            Nível de Segurança
+                        </label>
+                        <div class="container-nivel-seguranca">
+                            <div class="barra-seguranca">
+                                <div id="barraProgresso" class="barra-progresso"></div>
+                            </div>
+                            <span id="textoSeguranca" class="texto-seguranca">Digite uma senha</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Seção 2: Endereço -->
+                <div class="secao-cadastro">
+                    <div class="header-secao">
+                        <h3 class="numero-secao">2.</h3>
+                        <h3 class="titulo-secao">Endereço</h3>
+                    </div>
+
+                    <!-- CEP -->
+                    <div class="grupo-input">
+                        <label for="cep" class="label-input">
+                            CEP <span class="obrigatorio">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="cep" 
+                            class="input-cadastro" 
+                            placeholder="00000-000"
+                            maxlength="9"
+                            required
+                        >
+                    </div>
+
+                    <!-- Rua -->
+                    <div class="grupo-input">
+                        <label for="rua" class="label-input">
+                            Rua <span class="obrigatorio">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="rua" 
+                            class="input-cadastro" 
+                            placeholder="Digite o nome da rua"
+                            required
+                        >
+                    </div>
+
+                    <!-- Número e Complemento -->
+                    <div class="grupo-input grupo-duplo">
+                        <div class="meio-grupo">
+                            <label for="numero" class="label-input">
+                                Número <span class="obrigatorio">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="numero" 
+                                class="input-cadastro" 
+                                placeholder="123"
+                                required
+                            >
+                        </div>
+                        <div class="meio-grupo">
+                            <label for="complemento" class="label-input">
+                                Complemento
+                            </label>
+                            <input 
+                                type="text" 
+                                id="complemento" 
+                                class="input-cadastro" 
+                                placeholder="Apto 42"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Bairro -->
+                    <div class="grupo-input">
+                        <label for="bairro" class="label-input">
+                            Bairro <span class="obrigatorio">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="bairro" 
+                            class="input-cadastro" 
+                            placeholder="Digite o bairro"
+                            required
+                        >
+                    </div>
+
+                    <!-- Cidade e Estado -->
+                    <div class="grupo-input grupo-duplo">
+                        <div class="meio-grupo">
+                            <label for="cidade" class="label-input">
+                                Cidade <span class="obrigatorio">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="cidade" 
+                                class="input-cadastro" 
+                                placeholder="São Paulo"
+                                required
+                            >
+                        </div>
+                        <div class="meio-grupo">
+                            <label for="estado" class="label-input">
+                                Estado <span class="obrigatorio">*</span>
+                            </label>
+                            <select id="estado" class="input-cadastro" required>
+                                <option value="">Selecione um estado</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Mensagens de Erro/Sucesso -->
+                <div id="mensagemAlerta" class="mensagem-alerta mensagem-oculta"></div>
+
+                <!-- Botões de Ação -->
+                <div class="grupo-botoes">
+                    <button type="button" class="botao botao-voltar" id="btnVoltar">Voltar</button>
+                    <button type="submit" class="botao botao-cadastrar">Cadastrar</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- Rodapé realizado por Eduardo Alcantara -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-logo">
+                <h2>NextShape</h2>
+                <p>Suplementos para elevar sua performance</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Links</h3>
+                <a href="Index.html#topo">Início</a>
+                <a href="Index.html#produtos">Produtos</a>
+            </div>
+
+            <div class="footer-info">
+                <h3>Institucional</h3>
+                <a href="#">Sobre nós</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contato</h3>
+                <p>Email: nextshape@gmail.com</p>
+                <p>Telefone: (11) 99999-9999</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 NextShape - Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+
+</html>
