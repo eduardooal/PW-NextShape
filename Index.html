@@ -1,167 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Style.index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Style.index.css" />
     <script src="Script.index.js" defer></script>
+    <script src="Script.footer.js" defer></script>
     <title>NextShape</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header id="topo">
-        <div class="header-logo">
-            <a href="Index.html#topo">
-                <h1>NextShape</h1>
-            </a>
-        </div>
+      <div class="header-logo">
+        <a href="Index.html#topo">
+          <h1>NextShape</h1>
+        </a>
+      </div>
 
-        <div class="header-icons">
-            <a href="#"><img class="icon" src="assets/icons/search.svg" alt="Pesquisar"></a>
-            <button id="btn-carrinho" style="background: none; border: none; cursor: pointer; padding: 0;">
-            <img class="icon" src="assets/icons/cart.svg" alt="Carrinho"></button>
-            <a href="login.html"><img class="icon" src="assets/icons/user.svg" alt="Login"></a>
-            <a href="admin.html"><img class="icon" src="assets/icons/admin.svg" alt="Admin"></a>
-        </div>
+      <div class="header-icons">
+        <a href="#"
+          ><img class="icon" src="assets/icons/search.svg" alt="Pesquisar"
+        /></a>
+        <button
+          id="btn-carrinho"
+          style="background: none; border: none; cursor: pointer; padding: 0"
+        >
+          <img class="icon" src="assets/icons/cart.svg" alt="Carrinho" />
+        </button>
+        <a href="login.html"
+          ><img class="icon" src="assets/icons/user.svg" alt="Login"
+        /></a>
+        <a href="admin.html"
+          ><img class="icon" src="assets/icons/admin.svg" alt="Admin"
+        /></a>
+      </div>
     </header>
 
     <!-- CARRINHO LATERAL -->
     <div class="carrinho-overlay" id="carrinho-overlay"></div>
 
     <div class="carrinho-lateral" id="carrinho-lateral">
-        <div class="carrinho-header">
-            <h2>Meu Carrinho</h2>
-            <button class="btn-fechar" id="btn-fechar-carrinho">✕</button>
-        </div>
+      <div class="carrinho-header">
+        <h2>Meu Carrinho</h2>
+        <button class="btn-fechar" id="btn-fechar-carrinho">✕</button>
+      </div>
 
-        <div class="carrinho-itens" id="carrinho-itens">
-            <!-- Os itens aparecem aqui dinamicamente -->
-            <p class="carrinho-vazio">Seu carrinho está vazio</p>
-        </div>
+      <div class="carrinho-itens" id="carrinho-itens">
+        <!-- Os itens aparecem aqui dinamicamente -->
+        <p class="carrinho-vazio">Seu carrinho está vazio</p>
+      </div>
 
-        <div class="carrinho-footer">
-            <div class="carrinho-total">
-                <strong>Total:</strong>
-                <span id="total-preco">R$ 0,00</span>
-            </div>
-            <button class="btn-finalizar">Finalizar Compra</button>
+      <div class="carrinho-footer">
+        <div class="carrinho-total">
+          <strong>Total:</strong>
+          <span id="total-preco">R$ 0,00</span>
         </div>
+        <button class="btn-finalizar">Finalizar Compra</button>
+      </div>
     </div>
 
-
     <section class="hero">
-        <div class="hero-content">
-            <h2>Maximize Sua <span class="highlight-performance">Performance</span></h2>
-            <p>Suplementos premium para resultados extraordinários</p>
-            <a href="#produtos" class="button">Explorar Produtos</a>
-        </div>
-        <div class="hero-dot">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
+      <div class="hero-content">
+        <h2>
+          Maximize Sua <span class="highlight-performance">Performance</span>
+        </h2>
+        <p>Suplementos premium para resultados extraordinários</p>
+        <a href="#produtos" class="button">Explorar Produtos</a>
+      </div>
+      <div class="hero-dot">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
     </section>
 
     <section class="categories">
-        <a href="#">Proteína</a>
-        <a href="#">Creatina</a>
-        <a href="#">Vitaminas</a>
-        <a href="#">Pré-treino</a>
+      <a href="#">Proteína</a>
+      <a href="#">Creatina</a>
+      <a href="#">Vitaminas</a>
+      <a href="#">Pré-treino</a>
     </section>
-
-
 
     <!-- Sessão de produtos que ficará na página inicial (home) -->
-<div id="produtos">
-     <section class="produtos">
+    <div id="produtos">
+      <section class="produtos">
         <h2 class="produtos-titulo">Nossos Produtos</h2>
         <div class="grade-produtos">
-
-            <div class="card">
-                <img src="assets/images/whey-protein.png" alt="Whey-protein">
-                <div class="card-info">
-                    <h3>Whey-protein</h3>
-                    <span class="card-preco">R$ 149,90 </span>
-                    <button class="button btn-adicionar" data-nome="Whey-protein" data-preco="149.90">Comprar</button>
-                </div>
+          <div class="card">
+            <img src="assets/images/whey-protein.png" alt="Whey-protein" />
+            <div class="card-info">
+              <h3>Whey-protein</h3>
+              <span class="card-preco">R$ 149,90 </span>
+              <button
+                class="button btn-adicionar"
+                data-nome="Whey-protein"
+                data-preco="149.90"
+              >
+                Comprar
+              </button>
             </div>
+          </div>
 
-            <div class="card">
-                <img src="assets/images/creatina.png" alt="Creatina Monohidratada">
-                <div class="card-info">
-                    <h3>Creatina</h3>
-                    <span class="card-preco">R$ 89,90 </span>
-                    <button class="button btn-adicionar" data-nome="Creatina" data-preco="89.90">Comprar</button>
-                </div>
+          <div class="card">
+            <img
+              src="assets/images/creatina.png"
+              alt="Creatina Monohidratada"
+            />
+            <div class="card-info">
+              <h3>Creatina</h3>
+              <span class="card-preco">R$ 89,90 </span>
+              <button
+                class="button btn-adicionar"
+                data-nome="Creatina"
+                data-preco="89.90"
+              >
+                Comprar
+              </button>
             </div>
+          </div>
 
-            <div class="card">
-                <img src="assets/images/cafeína.png" alt="Cafeína">
-                <div class="card-info">
-                    <h3>Cafeína 200mg</h3>
-                    <span class="card-preco">R$ 35,90 </span>
-                    <button class="button btn-adicionar" data-nome="Cafeína 200mg" data-preco="35.90">Comprar</button>
-                </div>
+          <div class="card">
+            <img src="assets/images/cafeína.png" alt="Cafeína" />
+            <div class="card-info">
+              <h3>Cafeína 200mg</h3>
+              <span class="card-preco">R$ 35,90 </span>
+              <button
+                class="button btn-adicionar"
+                data-nome="Cafeína 200mg"
+                data-preco="35.90"
+              >
+                Comprar
+              </button>
             </div>
+          </div>
 
-            <div class="card">
-                <img src="assets/images/pré-treino.png" alt="Pré-treino">
-                <div class="card-info">
-                    <h3>Pré-treino</h3>
-                    <span class="card-preco">R$ 79,90 </span>
-                    <button class="button btn-adicionar" data-nome="Pré-treino" data-preco="79.90">Comprar</button>
-                </div>
+          <div class="card">
+            <img src="assets/images/pré-treino.png" alt="Pré-treino" />
+            <div class="card-info">
+              <h3>Pré-treino</h3>
+              <span class="card-preco">R$ 79,90 </span>
+              <button
+                class="button btn-adicionar"
+                data-nome="Pré-treino"
+                data-preco="79.90"
+              >
+                Comprar
+              </button>
             </div>
+          </div>
 
-            <div class="card">
-                <img src="assets/images/multivitaminico.png" alt="Multivitaminico">
-                <div class="card-info">
-                    <h3>Multivitamínico</h3>
-                    <span class="card-preco">R$ 30,90 </span>
-                    <button class="button btn-adicionar" data-nome="Multivitamínico" data-preco="30.90">Comprar</button>
-                </div>
+          <div class="card">
+            <img
+              src="assets/images/multivitaminico.png"
+              alt="Multivitaminico"
+            />
+            <div class="card-info">
+              <h3>Multivitamínico</h3>
+              <span class="card-preco">R$ 30,90 </span>
+              <button
+                class="button btn-adicionar"
+                data-nome="Multivitamínico"
+                data-preco="30.90"
+              >
+                Comprar
+              </button>
             </div>
-
+          </div>
         </div>
-    </section>
-</div>
+      </section>
+    </div>
 
-    <!-- Rodapé realizado por Eduardo Alcantara -->
+    <!-- Código HTML Rodapé realizado por Eduardo Alcantara -->
     <footer class="footer">
-        <div class="footer-container">
-
-            <div class="footer-logo">
-                <h2>NextShape</h2>
-                <p>Suplementos para elevar sua performance</p>
-            </div>
-
-            <div class="footer-links">
-                <h3>Links</h3>
-                <a href="#topo">Início</a>
-                <a href="#produtos">Produtos</a>
-            </div>
-
-            <div class="footer-info">
-                <h3>Institucional</h3>
-                <a href="#">Sobre nós</a>
-                <a href="#">Política de Privacidade</a>
-                <a href="#">Termos de Uso</a>
-            </div>
-
-            <div class="footer-contact">
-                <h3>Contato</h3>
-                <p>Email: nextshape@gmail.com</p>
-                <p>Telefone: (11) 99999-9999</p>
-            </div>
-
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>NextShape</h2>
+          <p>Suplementos para elevar sua performance</p>
         </div>
 
-        <div class="footer-bottom">
-            <p>© 2026 NextShape - Todos os direitos reservados</p>
+        <div class="footer-links">
+          <h3>Links</h3>
+
+          <a href="#topo">Início</a>
+          <a href="#produtos">Produtos</a>
         </div>
+
+        <div class="footer-info">
+          <h3>Institucional</h3>
+
+          <a href="#" id="abrir-sobre">Sobre nós</a>
+          <a href="#" id="abrir-politica"> Política de Privacidade </a>
+          <a href="#" id="abrir-termos"> Termos de Uso </a>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contato</h3>
+
+          <p>Email: nextshape@gmail.com</p>
+          <p>Telefone: (11) 99999-9999</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 NextShape - Todos os direitos reservados</p>
+      </div>
     </footer>
-</body>
 
+    <div id="modal-sobre" class="modal">
+      <div class="modal-content">
+        <span class="fechar">&times;</span>
+
+        <h2>Sobre Nós</h2>
+
+        <p>
+          A NextShape é uma empresa criada por seis estudantes do Centro
+          Universitário Senac - Santo Amaro. Empresa focada em suplementos para
+          atletas, praticantes de academia e pessoas que desejam melhorar sua
+          performance e qualidade de vida.
+        </p>
+      </div>
+    </div>
+
+    <div id="modal-politica" class="modal">
+      <div class="modal-content">
+        <span class="fechar">&times;</span>
+
+        <h2>Política de Privacidade</h2>
+
+        <p>
+          A NextShape respeita a privacidade dos usuários e protege as
+          informações compartilhadas durante a navegação.
+        </p>
+      </div>
+    </div>
+
+    <div id="modal-termos" class="modal">
+      <div class="modal-content">
+        <span class="fechar">&times;</span>
+
+        <h2>Termos de Uso</h2>
+
+        <p>
+          Ao utilizar a plataforma NextShape, o usuário concorda com as
+          condições de uso e navegação estabelecidas pelo site.
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
