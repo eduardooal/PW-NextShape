@@ -1,4 +1,4 @@
-// ========== Carrinho lateral ==========
+// Carrinho lateral 
 
 const btnCarrinho = document.querySelector("#btn-carrinho");
 const btnFechar = document.querySelector("#btn-fechar-carrinho");
@@ -8,7 +8,9 @@ const carrinhoItens = document.querySelector("#carrinho-itens");
 const totalPreco = document.querySelector("#total-preco");
 const botoesAdicionar = document.querySelectorAll(".btn-adicionar");
 
-let carrinho = [];
+// Carregar do localStorage
+let carrinho = LocalStorageManager.carregarCarrinho();
+console.log('📦 Carrinho carregado:', carrinho);
 
 console.log("btnCarrinho:", btnCarrinho);
 console.log("btnFechar:", btnFechar);
@@ -54,20 +56,14 @@ botoesAdicionar.forEach((botao, i) => {
 
     console.log(`Produto adicionado: ${nome} - R$ ${preco}`);
 
-    const produtoExistente = carrinho.find((item) => item.nome === nome);
+    // Usar a classe para adicionar
+    LocalStorageManager.adicionarAoCarrinho(nome, preco);
+    carrinho = LocalStorageManager.carregarCarrinho();
 
-    if (produtoExistente) {
-      produtoExistente.quantidade += 1;
-    } else {
-      carrinho.push({
-        nome: nome,
-        preco: preco,
-        quantidade: 1,
-      });
-    }
-
-    console.log("Carrinho:", carrinho);
     atualizarCarrinho();
+
+    // Feedback visual
+    alert(`${nome} adicionado ao carrinho! ✅`);
   });
 });
 
@@ -101,7 +97,7 @@ function atualizarCarrinho() {
                     <button class="btn-quantidade" onclick="aumentarQuantidade(${index})">+</button>
                 </div>
                 
-                <button class="btn-remover" onclick="removerItem(${index})">🗑️</button>
+                <button class="btn-remover" onclick="removerItem(${item.id})">🗑️</button>
             </div>
         `;
 
@@ -109,6 +105,9 @@ function atualizarCarrinho() {
   });
 
   totalPreco.textContent = `R$ ${total.toFixed(2)}`;
+
+  // Salvar após atualizar
+  LocalStorageManager.salvarCarrinho(carrinho);
 }
 
 // Aumentar quantidade
@@ -122,14 +121,17 @@ function diminuirQuantidade(index) {
   if (carrinho[index].quantidade > 1) {
     carrinho[index].quantidade -= 1;
   } else {
-    removerItem(index);
+    removerItem(carrinho[index].id);
+    return;
   }
   atualizarCarrinho();
 }
 
-// Remover item
-function removerItem(index) {
-  carrinho.splice(index, 1);
+// Remover item 
+function removerItem(id) {
+  // Usar a classe para remover
+  LocalStorageManager.removerDoCarrinho(id);
+  carrinho = LocalStorageManager.carregarCarrinho();
   atualizarCarrinho();
 }
 
@@ -162,7 +164,6 @@ setInterval(changeImage, 5000);
 
 changeImage();
 
-/*------------------------------------------------------------------- */
 
 // Hero dots (Bolinhas para trocar de imagem)
 const dots = document.querySelectorAll(".dot");
@@ -182,5 +183,3 @@ dots.forEach((dot, idx) => {
 });
 
 updatedots();
-
-/*---------------------------------------------------------------------------------- */

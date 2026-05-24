@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Style.index.css" />
+    <link rel="stylesheet" href="Style.relatorio.css" />
+    <script src="Script.localStorage.js" defer></script>
+    <script src="Script.relatorio.js" defer></script>
+    <script src="Script.footer.js" defer></script>
+    <title>Relatório - NextShape</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <a href="Index.html">
+          <h1>NextShape</h1>
+        </a>
+      </div>
+      <div class="header-icons">
+        <a href="Index.html">
+          <img class="icon" src="assets/icons/Home.svg" alt="Voltar" />
+        </a>
+      </div>
+    </header>
+
+    <main class="area-relatorio">
+      <div class="container-relatorio">
+        <h2> Relatório de Dados Armazenados</h2>
+        <p class="subtitulo">LocalStorage JavaScript - NextShape</p>
+
+        <!-- Botões de ação -->
+        <div class="botoes-acao">
+          <button class="btn btn-primario" onclick="exibirRelatorio()">
+             Atualizar Dados
+          </button>
+          <button class="btn btn-secundario" onclick="exportarRelatorio()">
+             Exportar JSON
+          </button>
+          <button class="btn btn-perigo" onclick="limparTodos()">
+             Limpar Tudo
+          </button>
+        </div>
+
+        <!-- Seção: Carrinho -->
+        <section class="secao-relatorio">
+          <div class="header-secao">
+            <h3> Carrinho</h3>
+            <span class="badge" id="badge-carrinho">0</span>
+          </div>
+          <div class="conteudo-relatorio">
+            <pre id="relatorio-carrinho">Carregando...</pre>
+          </div>
+        </section>
+
+        <!-- Seção: Usuário Logado -->
+        <section class="secao-relatorio">
+          <div class="header-secao">
+            <h3> Usuário Logado</h3>
+            <span class="badge" id="badge-usuario">❌</span>
+          </div>
+          <div class="conteudo-relatorio">
+            <pre id="relatorio-usuario">Nenhum usuário logado</pre>
+          </div>
+        </section>
+
+        <!-- Seção: Cadastros -->
+        <section class="secao-relatorio">
+          <div class="header-secao">
+            <h3> Cadastros Realizados</h3>
+            <span class="badge" id="badge-cadastros">0</span>
+          </div>
+          <div class="conteudo-relatorio">
+            <pre id="relatorio-cadastros">Nenhum cadastro</pre>
+          </div>
+        </section>
+
+        <!-- Seção: Resumo -->
+        <section class="secao-relatorio">
+          <div class="header-secao">
+            <h3> Resumo de Dados</h3>
+          </div>
+          <div class="conteudo-relatorio">
+            <div class="resumo-grid">
+              <div class="item-resumo">
+                <span class="label"> Total no Carrinho</span>
+                <span class="valor" id="resumo-carrinho-total">R$ 0,00</span>
+              </div>
+              <div class="item-resumo">
+                <span class="label"> Produtos no Carrinho</span>
+                <span class="valor" id="resumo-carrinho-qtd">0 produtos</span>
+              </div>
+              <div class="item-resumo">
+                <span class="label"> Usuários Cadastrados</span>
+                <span class="valor" id="resumo-usuarios">0</span>
+              </div>
+              <div class="item-resumo">
+                <span class="label"> Último Acesso</span>
+                <span class="valor" id="resumo-acesso">-</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Código HTML Rodapé realizado por Eduardo Alcantara -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>NextShape</h2>
+          <p>Suplementos para elevar sua performance</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Links</h3>
+
+          <a href="Index.html#topo">Início</a>
+          <a href="Index.html#produtos">Produtos</a>
+        </div>
+
+        <div class="footer-info">
+          <h3>Institucional</h3>
+
+          <a href="#" id="abrir-sobre">Sobre nós</a>
+          <a href="#" id="abrir-politica">Política de Privacidade</a>
+          <a href="#" id="abrir-termos">Termos de Uso</a>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contato</h3>
+
+          <p>Email: nextshape@gmail.com</p>
+          <p>Telefone: (11) 99999-9999</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 NextShape - Todos os direitos reservados</p>
+      </div>
+    </footer>
+
+    <div id="modal-sobre" class="modal">
+      <div class="modal-content">
+        <span class="fechar">&times;</span>
+
+        <h2>Sobre Nós</h2>
+
+        <p>
+          A NextShape é uma empresa criada por seis estudantes do Centro
+          Universitário Senac - Santo Amaro. Empresa focada em suplementos para
+          atletas, praticantes de academia e pessoas que desejam melhorar sua
+          performance e qualidade de vida.
+        </p>
+      </div>
+    </div>
+
+    <div id="modal-politica" class="modal">
+      <div class="modal-content">
+        <span class="fechar">&times;</span>
+
+        <h2>Política de Privacidade</h2>
+
+        <p>
+          A NextShape respeita a privacidade dos usuários e protege as
+          informações compartilhadas durante a navegação.
+        </p>
+      </div>
+    </div>
+
+    <div id="modal-termos" class="modal">
+      <div class="modal-content">
+        <span class="fechar">&times;</span>
+
+        <h2>Termos de Uso</h2>
+
+        <p>
+          Ao utilizar a plataforma NextShape, o usuário concorda com as
+          condições de uso e navegação estabelecidas pelo site.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
